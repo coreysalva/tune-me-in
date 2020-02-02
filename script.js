@@ -1,4 +1,6 @@
 var APIKey = "AIzaSyAU1fAk-8WcXwrIryta0wlz5iYnRE_c2ZA";
+var searchTerm = "hello world";
+searchTerm = searchTerm.replace(/ /g, "+");
 
 
 var queryURL = "https://www.googleapis.com/youtube/v3/search?part=id&q=twiddle&type=video&key=" + APIKey;
@@ -12,7 +14,6 @@ $.ajax({
         // Log the queryURL
         var videoID = response.items[0].id.videoId;
         console.log(videoID);
-
 
         var queryURL2 = "https://www.googleapis.com/youtube/v3/videos?key=" + APIKey + "&part=snippet&id=" + videoID;
 
