@@ -1,18 +1,19 @@
 var APIKey = "AIzaSyAU1fAk-8WcXwrIryta0wlz5iYnRE_c2ZA";
 var searchTerm = "";
+
 // WHEN PULLING SEARCH TERM....ADD .TRIM() TO REMOVE SPACES AT BEG AND END
+
 searchTerm = searchTerm.replace(/ /g, "+");
 
 
-var queryURL = "https://www.googleapis.com/youtube/v3/search?part=id&q=phish&type=video&key=" + APIKey;
+var queryURL = "https://www.googleapis.com/youtube/v3/search?part=id&q=twiddle&type=video&key=" + APIKey;
 $.ajax({
     url: queryURL,
     method: "GET"
 })
-    // FIGURE OUT LINK FOR CHANNELS AND PLAYLISTS
+    // FIGURE OUT LINKS FOR CHANNELS AND PLAYLISTS
 
 
-    // WHEN USER DOES A VIDEO KEYWORD SEARCH..........
     .then(function (response) {
 
         for (var i = 0; i < 5; i++) {
