@@ -4,7 +4,11 @@ var APIKey = "AIzaSyAU1fAk-8WcXwrIryta0wlz5iYnRE_c2ZA";
 
 $("#search-btn").on("click", function () {
     $("#yt-content").empty();
-    var searchTerm = $("#album_name").val().trim();
+    var songName = $("#artist_name").val().trim();
+    var artistName = $("#artist_name").val().trim();
+    var albumName = $("#album_name").val().trim();
+
+    var searchTerm = songName + " " + artistName + " " + albumName;
     searchTerm = searchTerm.replace(/ /g, "+");
 
     // ADD IF STATEMENT HERE
@@ -38,13 +42,12 @@ $("#search-btn").on("click", function () {
                             var linkDiv = $("<a>");
                             var videoLink = "https://www.youtube.com/watch?v=" + videoId;
                             var imgDiv = $("<img>");
-                            // console.log(response)
-                            // console.log(response.items[0].id)
+
                             var imgSrc = response.items[0].snippet.thumbnails.medium.url;
 
                             titleDiv.text(response.items[0].snippet.title);
                             newDiv.append(titleDiv);
-
+                            console.log(i);
 
 
                             linkDiv.attr("href", videoLink);
@@ -75,7 +78,7 @@ $("#search-btn").on("click", function () {
 
 
 
-        var queryURL = "https://www.googleapis.com/youtube/v3/search?part=id&q=twiddle&type=channel&key=" + APIKey;
+        var queryURL = "https://www.googleapis.com/youtube/v3/search?part=id&q=" + searchTerm + "&type=channel&key=" + APIKey;
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -120,7 +123,7 @@ $("#search-btn").on("click", function () {
                             imgDiv.attr("src", imgSrc);
                             linkDiv.append(imgDiv);
 
-                            $(".videoList").append(newDiv);
+                            $("#yt-content").append(newDiv);
 
 
 
@@ -137,7 +140,7 @@ $("#search-btn").on("click", function () {
     else {
 
         // WHEN A USER SEARCHES FOR A PLAYLIST
-        var queryURL = "https://www.googleapis.com/youtube/v3/search?part=id&q=phish&type=playlist&key=" + APIKey;
+        var queryURL = "https://www.googleapis.com/youtube/v3/search?part=id&q=" + searchTerm + "&type=playlist&key=" + APIKey;
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -190,4 +193,5 @@ $("#search-btn").on("click", function () {
 
             });
     };
+    console.log(searchTerm)
 });
