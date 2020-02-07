@@ -22,9 +22,9 @@ $("#search-btn").on("click", function () {
     if (searchTerm.charAt(searchTerm.length - 1) == '+') {
         searchTerm = searchTerm.substr(0, searchTerm.length - 1);
     };
-
+    console.log(searchTerm);
+    // WHEN USER DOES A VIDEO KEYWORD SEARCH..........
     if ($("select[id=searchType] option:selected").val() == "videos") {
-        // WHEN USER DOES A VIDEO KEYWORD SEARCH..........
 
         var queryURL = "https://www.googleapis.com/youtube/v3/search?part=id&q=" + searchTerm + "&type=video&key=" + APIKey;
         $.ajax({
@@ -63,7 +63,6 @@ $("#search-btn").on("click", function () {
                             linkDiv.attr("href", videoLink);
                             linkDiv.attr("target", "_blank");
                             newDiv.append(linkDiv);
-
                             imgDiv.attr("src", imgSrc);
                             linkDiv.append(imgDiv);
                             $("#yt-content").append(newDiv);
@@ -77,12 +76,8 @@ $("#search-btn").on("click", function () {
     }
 
 
-
+    // WHEN A USER SEARCHES FOR CHANNEL
     else if ($("select[id=searchType] option:selected").val() == "channels") {
-
-
-        // WHEN A USER SEARCHES FOR CHANNEL
-
 
 
         var queryURL = "https://www.googleapis.com/youtube/v3/search?part=id&q=" + searchTerm + "&type=channel&key=" + APIKey;
@@ -142,10 +137,9 @@ $("#search-btn").on("click", function () {
 
     }
 
-
+    // WHEN A USER SEARCHES FOR A PLAYLIST
     else {
 
-        // WHEN A USER SEARCHES FOR A PLAYLIST
         var queryURL = "https://www.googleapis.com/youtube/v3/search?part=id&q=" + searchTerm + "&type=playlist&key=" + APIKey;
         $.ajax({
             url: queryURL,
