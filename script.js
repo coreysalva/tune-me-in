@@ -1,5 +1,4 @@
-// ISSUES - FOR CHANNEL AND VIDEO ALL RESULTS LINK OUT TO LAST RESULT & PLAYLIST LINK WON'T WORK BECAUSE I CAN'T GET 1ST VIDEO ID FROM JSON
-
+// ADD A CUTOFF FOR CHANNEL DESCRIPTION
 
 var APIKey = "AIzaSyAU1fAk-8WcXwrIryta0wlz5iYnRE_c2ZA";
 
@@ -22,7 +21,7 @@ $("#search-btn").on("click", function () {
     if (searchTerm.charAt(searchTerm.length - 1) == '+') {
         searchTerm = searchTerm.substr(0, searchTerm.length - 1);
     };
-    console.log(searchTerm);
+
     // WHEN USER DOES A VIDEO KEYWORD SEARCH..........
     if ($("select[id=searchType] option:selected").val() == "videos") {
 
@@ -36,7 +35,7 @@ $("#search-btn").on("click", function () {
 
                 for (var i = 0; i < 5; i++) {
 
-                    var videoId = response.items[i].id.videoId;
+                    const videoId = response.items[i].id.videoId;
 
                     var queryURL2 = "https://www.googleapis.com/youtube/v3/videos?key=" + APIKey + "&part=snippet&id=" + videoId;
 
@@ -57,7 +56,7 @@ $("#search-btn").on("click", function () {
 
                             titleDiv.text(response.items[0].snippet.title);
                             newDiv.append(titleDiv);
-                            // console.log(i);
+
 
 
                             linkDiv.attr("href", videoLink);
@@ -92,7 +91,7 @@ $("#search-btn").on("click", function () {
 
                 for (var i = 0; i < 5; i++) {
 
-                    var channelId = response.items[i].id.channelId;
+                    const channelId = response.items[i].id.channelId;
 
                     var queryURL2 = "https://www.googleapis.com/youtube/v3/channels?key=" + APIKey + "&part=snippet&id=" + channelId;
 
@@ -140,6 +139,7 @@ $("#search-btn").on("click", function () {
     // WHEN A USER SEARCHES FOR A PLAYLIST
     else {
 
+
         var queryURL = "https://www.googleapis.com/youtube/v3/search?part=id&q=" + searchTerm + "&type=playlist&key=" + APIKey;
         $.ajax({
             url: queryURL,
@@ -148,8 +148,9 @@ $("#search-btn").on("click", function () {
 
             .then(function (response) {
                 for (var i = 0; i < 5; i++) {
-                    var firstVideo = "";
-                    var playlistId = response.items[i].id.playlistId;
+
+                    const playlistId = response.items[i].id.playlistId;
+
                     var queryURL2 = "https://www.googleapis.com/youtube/v3/playlists?key=" + APIKey + "&part=snippet&id=" + playlistId;
 
                     $.ajax({
@@ -162,7 +163,9 @@ $("#search-btn").on("click", function () {
                             var newDiv = $("<div>");
                             var titleDiv = $("<h5>");
                             var linkDiv = $("<a>");
-                            var videoLink = "https://www.youtube.com/watch?v=" + playlistId;
+
+                            var videoLink = "https://www.youtube.com/playlist?list=" + playlistId;
+
                             var imgDiv = $("<img>");
                             var imgSrc = response.items[0].snippet.thumbnails.medium.url;
 
