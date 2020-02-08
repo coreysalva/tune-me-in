@@ -1,0 +1,17 @@
+.card-title{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold !important;
+    color: #26a69a;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
+    color: #26a69a;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover{
+    color: #26a69a82;
+}
+
+img{
+    width: 75%;
+}
