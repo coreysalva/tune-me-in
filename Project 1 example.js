@@ -1,4 +1,3 @@
-console.log("hello ryan");
 
 var apikey = "QifHTCzvGSMfbaKm1TL6YGiFOvY3s2W9";
 
@@ -63,4 +62,4 @@ $("#search-btn").on("click", function () {
             item = item.next();
         }
     }
-})
+
