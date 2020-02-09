@@ -17,6 +17,7 @@ var APIKey = "AIzaSyAU1fAk-8WcXwrIryta0wlz5iYnRE_c2ZA";
 
 $("#search-btn").on("click", function () {
     $("#yt-content").empty();
+    $("#tk-content").empty();
     var songName = $("#song_name").val().trim();
     var artistName = $("#artist_name").val().trim();
     var albumName = $("#album_name").val().trim();
@@ -24,6 +25,8 @@ $("#search-btn").on("click", function () {
     var searchTerm = songName + "+" + artistName + "+" + albumName;
     // replace blanks with "+"s
     searchTerm = searchTerm.replace(/ /g, "+");
+    artistName = artistName.replace(/ /g, "+");
+
     // replace ++ with +
     searchTerm = searchTerm.replace("++", "+");
     // remove + from beginning of search term
@@ -62,20 +65,23 @@ $("#search-btn").on("click", function () {
 
                             var newDiv = $("<div>");
                             var titleDiv = $("<h5>");
-                            var linkDiv = $("<a>");
+                            // var linkDiv = $("<a>");
                             var videoLink = "https://www.youtube.com/watch?v=" + videoId;
-                            var imgDiv = $("<img>");
+                            // var imgDiv = $("<img>");
+                            var embedDiv = '<div class="video-container"><iframe src="http://www.youtube.com/embed/' + videoId + '"?rel=0" frameborder="0" allowfullscreen></iframe></div>';
+                            // console.log(embedDiv);
                             var buttonCode = '<br><a id="' + buttonId + '" class="waves-effect waves-light btn" data-url="' + videoLink + '" ><i class="fas fa-clipboard" aria-hidden="true"></i> Copy</a>'
 
                             var imgSrc = response.items[0].snippet.thumbnails.medium.url;
 
                             titleDiv.text(response.items[0].snippet.title);
                             newDiv.append(titleDiv);
-                            linkDiv.attr("href", videoLink);
-                            linkDiv.attr("target", "_blank");
-                            newDiv.append(linkDiv);
-                            imgDiv.attr("src", imgSrc);
-                            linkDiv.append(imgDiv);
+                            // linkDiv.attr("href", videoLink);
+                            // linkDiv.attr("target", "_blank");
+                            // newDiv.append(linkDiv);
+                            // imgDiv.attr("src", imgSrc);
+                            // linkDiv.append(imgDiv);
+                            newDiv.append(embedDiv);
                             newDiv.append(buttonCode);
                             $(".btn").click(function () {
 
@@ -208,21 +214,23 @@ $("#search-btn").on("click", function () {
 
                             var newDiv = $("<div>");
                             var titleDiv = $("<h5>");
-                            var linkDiv = $("<a>");
+                            // var linkDiv = $("<a>");
 
                             var videoLink = "https://www.youtube.com/playlist?list=" + playlistId;
 
-                            var imgDiv = $("<img>");
-                            var imgSrc = response.items[0].snippet.thumbnails.medium.url;
+                            // var imgDiv = $("<img>");
+                            // var imgSrc = response.items[0].snippet.thumbnails.medium.url;
+                            var embedDiv = '<div class="video-container"><iframe src="http://www.youtube.com/embed/videoseries?list=' + playlistId + '"?rel=0" frameborder="0" allowfullscreen></iframe></div>';
                             var buttonCode = '<br><a id="' + buttonId + '" class="waves-effect waves-light btn" data-url="' + videoLink + '" ><i class="fas fa-clipboard" aria-hidden="true"></i> Copy</a>'
 
                             titleDiv.text(response.items[0].snippet.title);
                             newDiv.append(titleDiv);
-                            linkDiv.attr("href", videoLink);
-                            linkDiv.attr("target", "_blank");
-                            newDiv.append(linkDiv);
-                            imgDiv.attr("src", imgSrc);
-                            linkDiv.append(imgDiv);
+                            // linkDiv.attr("href", videoLink);
+                            // linkDiv.attr("target", "_blank");
+                            // newDiv.append(linkDiv);
+                            // imgDiv.attr("src", imgSrc);
+                            // linkDiv.append(imgDiv);
+                            newDiv.append(embedDiv);
                             newDiv.append(buttonCode);
                             $(".btn").click(function () {
 
@@ -248,4 +256,76 @@ $("#search-btn").on("click", function () {
 
             });
     };
+
+
+
+
+    var lastFmApiKey = "57fffbb92b9278298f1b78c87983014b"
+    var sharedSecret = "7a7564505d37a6b2f3572896ce7d994a"
+    var queryURL5 = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artistName + "&api_key=" + lastFmApiKey + "&format=json";
+    $.ajax({
+        url: queryURL5,
+        method: "GET"
+    })
+
+        .then(function (response) {
+            console.log(response);
+
+            var newDiv = $("<div>");
+            var artistBioTitle = $("<h5>");
+            var artistBioText = $("<p>");
+            var similarDivTitle = $("<h5>");
+            var similarDivText = $("<p>");
+            var albumDivHeader = $("<h5>");
+
+
+            similarDivTitle.text("Similar Artists:")
+            similarDivText.text()
+            artistBioTitle.text("Artist Biography:");
+            artistBioText.text(response.artist.bio.summary)
+            newDiv.append(artistBioTitle);
+            newDiv.append(artistBioText);
+            newDiv.append("<br>");
+            albumDivHeader.text("Albums:");
+            newDiv.append(albumDivHeader);
+
+            $("#tk-content").append(newDiv);
+
+        });
+
+
+    var consumerKey = "gzWAlJdZuJtEWPZkzhui";
+    var consumerSecret = "PMLUKaQuCUoGBmQBXcRLDyqzltgJxUHH";
+    var queryURL4 = "https://api.discogs.com/database/search?artist=" + artistName + "&format=album&key=" + consumerKey + "&secret=" + consumerSecret;
+
+
+
+    $.ajax({
+        url: queryURL4,
+        method: "GET"
+    })
+
+        .then(function (response) {
+            for (var i = 0; i < 10; i++) {
+                // console.log(response);
+
+                var newDiv = $("<div>");
+                var albumTitleDiv = $("<p>");
+                var imgDiv = $("<img>");
+                var imgSrc = response.results[i].cover_image;
+
+                imgDiv.attr("src", imgSrc);
+                albumTitleDiv.text(response.results[i].title);
+                newDiv.append(albumTitleDiv);
+                newDiv.append(imgDiv);
+                newDiv.append("<br>");
+                newDiv.append("<br>");
+
+                $("#tk-content").append(newDiv);
+            };
+
+        });
+
+
+
 });

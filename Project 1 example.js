@@ -1,12 +1,39 @@
 
-var apikey = "QifHTCzvGSMfbaKm1TL6YGiFOvY3s2W9";
 
+//the console log of said events
 $("#search-btn").on("click", function () {
     $("#tk-content").empty();
     var artistName = $("#artist_name").val().trim();
 
+    var apikey = "QifHTCzvGSMfbaKm1TL6YGiFOvY3s2W9";
 
-    //To find the events
+    $("#search-btn").on("click", function () {
+        $("#tk-content").empty();
+        var stateCode = $("#eventState").val().trim();
+        var artistName = $("#artist_name").val().trim();
+        var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=5&keywork&stateCode=" + stateCode + "&apikey=" + apikey;
+
+        $.ajax({
+            type: "GET",
+            url: queryURL,
+            async: true,
+            dataType: "json",
+            success: function (json) {
+                console.log(json);
+                // Parse the response.
+                // Do other things.
+            },
+            error: function (xhr, status, err) {
+                // This time, we do not end up here!
+            }
+        })
+        if ()
+            $("#tk-content").append()
+
+    })
+
+
+    // find events (below will)
     function getEvents(page) {
 
         $('#events-panel').show();
