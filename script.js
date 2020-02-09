@@ -269,7 +269,7 @@ $("#search-btn").on("click", function () {
     })
 
         .then(function (response) {
-            console.log(response);
+            console.log(response.artist.bio.summary);
 
             var newDiv = $("<div>");
             var artistBioTitle = $("<h5>");
