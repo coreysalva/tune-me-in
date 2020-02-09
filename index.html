@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <title>Tune Me In</title>
 </head>
@@ -17,26 +18,26 @@
             <div class="col s12">
                 <div class="card blue-grey lighten-5 hoverable">
                     <div class="card-content">
-                        <span class="card-title">Search</span>
+                        <h2 class="card-title">Tune Me In</h2>
                         <div class="row">
                             <div class="col s12">
                                 <div class="row">
-                                    <div class="input-field col s4">
+                                    <div class="input-field col s12 m4 l4">
                                         <input id="song_name" type="text" class="">
                                         <label for="song_name">Song:</label>
                                     </div>
-                                    <div class="input-field col s4">
+                                    <div class="input-field col s12 m4 l4">
                                         <input id="artist_name" type="text" class="">
                                         <label for="artist_name">Artist:</label>
                                     </div>
-                                    <div class="input-field col s4">
+                                    <div class="input-field col s12 m4 l4">
                                         <input id="album_name" type="text" class="">
                                         <label for="album_name">Album:</label>
                                     </div>
                                 </div>
                                 <!-- Row icluding search options, state, and country-->
                                 <div class="row">
-                                    <div class="input-field col s4">
+                                    <div class="input-field col s12 m4 l4">
                                         <select id="searchType">
                                             <option value="videos" selected>Videos</option>
                                             <option value="playlists">Playlists</option>
@@ -44,7 +45,7 @@
                                         </select>
                                         <label>Search for:</label>
                                     </div>
-                                    <div class="input-field col s4">
+                                    <div class="input-field col s12 m4 l4">
                                         <div class="row">
                                             <div class="col s12">
                                                 <form action="#">
@@ -106,14 +107,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="input-field col s4">
+                                    <div class="input-field col s12 m4 l4">
                                         <input id="country" type="text" class="">
                                         <label for="country">Country:</label>
                                     </div>
                                 </div>
                                 <div class="row card-action">
-                                    <div class="col s3"></div>
-                                    <div class="input-field col s3">
+                                    <div class="input-field col s12 m6 l6">
                                         <form action="#">
                                             <p>
                                                 <label>
@@ -125,12 +125,10 @@
 
 
                                     </div>
-                                    <div class="input-field col s3">
+                                    <div class="input-field col s12 m6 l6">
                                         <a class="waves-effect waves-teal btn-flat" id="search-btn">Search</a>
                                     </div>
-                                    <div class="col s3">
 
-                                    </div>
 
                                 </div>
                             </div>
@@ -143,10 +141,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s6">
+            <div class="col s12 m6 l6">
                 <div class="card blue-grey lighten-5 hoverable youtube-card">
                     <div class="card-content">
-                        <span class="card-title">Youtube</span>
+                        <h2 class="card-title">Youtube</h2>
                         <div class="row" id="yt-content">
 
                         </div>
@@ -155,10 +153,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col s6">
+            <div class="col s12 m6 l6">
                 <div class="card blue-grey lighten-5 hoverable">
                     <div class="card-content" id="ticketmaster-card">
-                        <span class="card-title">Ticketmaster</span>
+                        <h2 class="card-title">Ticketmaster</h2>
                         <div class="row" id="tk-content">
 
                         </div>
@@ -175,13 +173,17 @@
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="script.js"></script>
     <script>
         $(document).ready(function () {
             $('select').formSelect();
-        });</script>
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/4f2122606e.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
 </body>
 
 </html>
