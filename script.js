@@ -238,8 +238,13 @@ $("#search-btn").on("click", function () {
 
                             var videoLink = "https://www.youtube.com/playlist?list=" + playlistId;
 
+<<<<<<< HEAD
                             // var imgDiv = $("<img>");
                             // var imgSrc = response.items[0].snippet.thumbnails.medium.url;
+=======
+                            var imgDiv = $("<img>");
+                            var imgSrc = response.items[0].snippet.thumbnails.medium.url;
+>>>>>>> 5206d64824128e2060781f149ef3a6bc9317f731
                             var embedDiv = '<div class="video-container"><iframe width="853" height="480" src="http://www.youtube.com/embed/videoseries?list=' + playlistId + '"?rel=0" frameborder="0" allowfullscreen></iframe></div>';
                             var buttonCode = '<br><a id="' + buttonId + '" class="waves-effect waves-light btn" data-url="' + videoLink + '" ><i class="fas fa-clipboard" aria-hidden="true"></i> Copy</a>'
 
