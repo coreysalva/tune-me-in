@@ -68,8 +68,8 @@ $("#search-btn").on("click", function () {
                             // var linkDiv = $("<a>");
                             var videoLink = "https://www.youtube.com/watch?v=" + videoId;
                             // var imgDiv = $("<img>");
-                            var embedDiv = '<div class="video-container"><iframe width="853" height="480" src="http://www.youtube.com/embed/' + videoId + '"?rel=0" frameborder="0" allowfullscreen></iframe></div>';
-                            // console.log(embedDiv);
+                            var embedDiv = '<div class="video-container"><iframe width="853" height="480" src="http://www.youtube.com/embed/' + videoId + '"?rel=0" allowfullscreen></iframe></div>';
+                            console.log(embedDiv);
                             var buttonCode = '<br><a id="' + buttonId + '" class="waves-effect waves-light btn" data-url="' + videoLink + '" ><i class="fas fa-clipboard" aria-hidden="true"></i> Copy</a>'
 
                             var imgSrc = response.items[0].snippet.thumbnails.medium.url;
@@ -220,7 +220,7 @@ $("#search-btn").on("click", function () {
 
                             // var imgDiv = $("<img>");
                             // var imgSrc = response.items[0].snippet.thumbnails.medium.url;
-                            var embedDiv = '<iframe width="853" height="480" src="http://www.youtube.com/embed/videoseries?list=' + playlistId + '"?rel=0" frameborder="0" allowfullscreen></iframe>';
+                            var embedDiv = '<div class="video-container"><iframe width="853" height="480" src="http://www.youtube.com/embed/videoseries?list=' + playlistId + '"?rel=0" frameborder="0" allowfullscreen></iframe></div>';
                             var buttonCode = '<br><a id="' + buttonId + '" class="waves-effect waves-light btn" data-url="' + videoLink + '" ><i class="fas fa-clipboard" aria-hidden="true"></i> Copy</a>'
 
                             titleDiv.text(response.items[0].snippet.title);
@@ -269,7 +269,7 @@ $("#search-btn").on("click", function () {
     })
 
         .then(function (response) {
-            console.log(response);
+            // console.log(response);
 
             var newDiv = $("<div>");
             var artistBioTitle = $("<h5>");
