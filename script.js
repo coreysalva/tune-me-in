@@ -18,7 +18,7 @@ var APIKey = "AIzaSyAU1fAk-8WcXwrIryta0wlz5iYnRE_c2ZA";
 // Event listener for search button
 $("#search-btn").on("click", function () {
     $("#yt-content").empty();
-    $("#tk-content").empty();
+
     var songName = $("#song_name").val().trim();
     var artistName = $("#artist_name").val().trim();
     var albumName = $("#album_name").val().trim();
