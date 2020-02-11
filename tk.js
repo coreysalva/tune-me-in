@@ -12,7 +12,7 @@ $("#search-btn").on("click", function () {
         $("#tk-content").empty();
         var stateCode = $("#eventState").val().trim();
         var artistName = $("#artist_name").val().trim();
-        var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&keywork=" + artistName + "&size=5&stateCode=" + stateCode + "&apikey=" + apikey;
+        var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=event&keywork=" + artistName + "&size=5&stateCode=" + stateCode + "&apikey=" + apikey;
 
         $.ajax({
             type: "GET",
