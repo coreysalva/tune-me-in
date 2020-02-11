@@ -283,7 +283,7 @@ $("#search-btn").on("click", function () {
 
     var lastFmApiKey = "57fffbb92b9278298f1b78c87983014b"
     var sharedSecret = "7a7564505d37a6b2f3572896ce7d994a"
-    var queryURL5 = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artistName + "&api_key=" + lastFmApiKey + "&format=json";
+    var queryURL5 = "https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artistName + "&api_key=" + lastFmApiKey + "&format=json";
     $.ajax({
         url: queryURL5,
         method: "GET"
