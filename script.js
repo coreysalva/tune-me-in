@@ -331,7 +331,7 @@ $("#search-btn").on("click", function () {
             newDiv.append(similarDivText);
             newDiv.append("<br>");
             albumDivHeader.text("Albums:");
-            // newDiv.append(albumDivHeader);
+            newDiv.append(albumDivHeader);
 
             $("#tk-content").append(newDiv);
 
@@ -344,31 +344,31 @@ $("#search-btn").on("click", function () {
 
 
 
-    // $.ajax({
-    //     url: queryURL4,
-    //     method: "GET"
-    // })
+    $.ajax({
+        url: queryURL4,
+        method: "GET"
+    })
 
-    //     .then(function (response) {
-    //         for (var i = 0; i < 10; i++) {
-    //             // console.log(response);
+        .then(function (response) {
+            for (var i = 0; i < 10; i++) {
+                // console.log(response);
 
-    //             var newDiv = $("<div>");
-    //             var albumTitleDiv = $("<p>");
-    //             var imgDiv = $("<img>");
-    //             var imgSrc = response.results[i].cover_image;
+                var newDiv = $("<div>");
+                var albumTitleDiv = $("<p>");
+                var imgDiv = $("<img>");
+                var imgSrc = response.results[i].cover_image;
 
-    //             imgDiv.attr("src", imgSrc);
-    //             albumTitleDiv.text(response.results[i].title);
-    //             newDiv.append(albumTitleDiv);
-    //             newDiv.append(imgDiv);
-    //             newDiv.append("<br>");
-    //             newDiv.append("<br>");
+                imgDiv.attr("src", imgSrc);
+                albumTitleDiv.text(response.results[i].title);
+                newDiv.append(albumTitleDiv);
+                newDiv.append(imgDiv);
+                newDiv.append("<br>");
+                newDiv.append("<br>");
 
-    //             $("#tk-content").append(newDiv);
-    //         };
+                $("#tk-content").append(newDiv);
+            };
 
-    //     });
+        });
 
 
 
