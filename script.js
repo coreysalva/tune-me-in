@@ -353,19 +353,19 @@ $("#search-btn").on("click", function () {
                     for (var i = 0; i < 10; i++) {
                         // console.log(response);
 
-                        var newDiv = $("<div>");
+                        var newDiv2 = $("<div>");
                         var albumTitleDiv = $("<p>");
                         var imgDiv = $("<img>");
                         var imgSrc = response.results[i].cover_image;
 
                         imgDiv.attr("src", imgSrc);
                         albumTitleDiv.text(response.results[i].title);
-                        newDiv.append(albumTitleDiv);
-                        newDiv.append(imgDiv);
-                        newDiv.append("<br>");
-                        newDiv.append("<br>");
+                        newDiv2.append(albumTitleDiv);
+                        newDiv2.append(imgDiv);
+                        newDiv2.append("<br>");
+                        newDiv2.append("<br>");
 
-                        $("#tk-content").append(newDiv);
+                        $("#tk-content").append(newDiv2);
                     };
 
                 });
