@@ -13,7 +13,7 @@ function copyToClipboard(text) {
 }
 
 
-var APIKey = "AIzaSyAU1fAk-8WcXwrIryta0wlz5iYnRE_c2ZA";
+var APIKey = "AIzaSyDbWRn-vHKFAxqPw4rJqZ6_zkKnpiaowI4";
 
 // Event listener for search button
 $("#search-btn").on("click", function () {
@@ -290,7 +290,7 @@ $("#search-btn").on("click", function () {
     })
 
         .then(function (response) {
-            console.log(response.artist);
+            // console.log(response.artist);
 
             var newDiv = $("<div>");
             var artistNameDiv = $("<h4>");
