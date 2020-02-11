@@ -333,43 +333,43 @@ $("#search-btn").on("click", function () {
             albumDivHeader.text("Albums:");
             newDiv.append(albumDivHeader);
 
-            $("#tk-content").prepend(newDiv);
-
-
-
-
-            var consumerKey = "gzWAlJdZuJtEWPZkzhui";
-            var consumerSecret = "PMLUKaQuCUoGBmQBXcRLDyqzltgJxUHH";
-            var queryURL4 = "https://api.discogs.com/database/search?artist=" + artistName + "&format=album&key=" + consumerKey + "&secret=" + consumerSecret;
-
-
-
-            $.ajax({
-                url: queryURL4,
-                method: "GET"
-            })
-
-                .then(function (response) {
-                    for (var i = 0; i < 10; i++) {
-                        // console.log(response);
-
-                        var newDiv2 = $("<div>");
-                        var albumTitleDiv = $("<p>");
-                        var imgDiv = $("<img>");
-                        var imgSrc = response.results[i].cover_image;
-
-                        imgDiv.attr("src", imgSrc);
-                        albumTitleDiv.text(response.results[i].title);
-                        newDiv2.append(albumTitleDiv);
-                        newDiv2.append(imgDiv);
-                        newDiv2.append("<br>");
-                        newDiv2.append("<br>");
-
-                        $("#tk-content").append(newDiv2);
-                    };
-
-                });
+            $("#tk-content").append(newDiv);
 
         });
+
+
+    var consumerKey = "gzWAlJdZuJtEWPZkzhui";
+    var consumerSecret = "PMLUKaQuCUoGBmQBXcRLDyqzltgJxUHH";
+    var queryURL4 = "https://api.discogs.com/database/search?artist=" + artistName + "&format=album&key=" + consumerKey + "&secret=" + consumerSecret;
+
+
+
+    $.ajax({
+        url: queryURL4,
+        method: "GET"
+    })
+
+        .then(function (response) {
+            for (var i = 0; i < 10; i++) {
+                // console.log(response);
+
+                var newDiv = $("<div>");
+                var albumTitleDiv = $("<p>");
+                var imgDiv = $("<img>");
+                var imgSrc = response.results[i].cover_image;
+
+                imgDiv.attr("src", imgSrc);
+                albumTitleDiv.text(response.results[i].title);
+                newDiv.append(albumTitleDiv);
+                newDiv.append(imgDiv);
+                newDiv.append("<br>");
+                newDiv.append("<br>");
+
+                $("#tk-content").append(newDiv);
+            };
+
+        });
+
+
 
 });
