@@ -333,7 +333,7 @@ $("#search-btn").on("click", function () {
             albumDivHeader.text("Albums:");
             newDiv.append(albumDivHeader);
 
-            $("#tk-content").append(newDiv);
+            $("#tk-content").prepend(newDiv);
 
 
 
