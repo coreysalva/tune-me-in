@@ -13,7 +13,7 @@ function copyToClipboard(text) {
 }
 
 
-var APIKey = "AIzaSyAwPKL9uZbsTowJi7hj6mWPdctWtcWQU2o";
+var APIKey = "AIzaSyAd_3aAeS4DW6uwyMG8qailGOWj3_WkVw8";
 
 // Event listener for search button
 $("#search-btn").on("click", function () {
