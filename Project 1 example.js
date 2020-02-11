@@ -1,4 +1,3 @@
-console.log("hello ryan");
 
 
 //the console log of said events
@@ -49,6 +48,3 @@ $("#search-btn").on("click", function () {
 
 
         })
-
-    })
-})
