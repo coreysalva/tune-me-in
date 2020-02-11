@@ -1,4 +1,3 @@
-console.log("hello ryan");
 
 
 //the console log of said events
@@ -27,7 +26,6 @@ $("#search-btn").on("click", function () {
                 var newDiv = $('<div>');
                 for (i = 0; i < 5; i++) {
 
-
                     var titleDiv = $('<h5>');
                     var linkDiv = $('<a>');
                     var embedDiv = '<div class="ticket-container"></div>'
@@ -36,7 +34,7 @@ $("#search-btn").on("click", function () {
 
                     $('#tk-content').append(titleDiv);
                     $('#tk-content').append(embedDiv);
-                    titleDiv.html(json._embedded.events[i].name);
+                    titleDiv.text(json._embedded.events[i].name);
                     newDiv.append(titleDiv);
                     newDiv.append(embedDiv);
                     newDiv.append();
@@ -50,6 +48,3 @@ $("#search-btn").on("click", function () {
 
 
         })
-
-    })
-})
