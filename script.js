@@ -13,7 +13,7 @@ function copyToClipboard(text) {
 }
 
 
-var APIKey = "AIzaSyAd_3aAeS4DW6uwyMG8qailGOWj3_WkVw8";
+var APIKey = "AIzaSyDbWRn-vHKFAxqPw4rJqZ6_zkKnpiaowI4";
 
 // Event listener for search button
 $("#search-btn").on("click", function () {
@@ -77,7 +77,10 @@ $("#search-btn").on("click", function () {
                             var linkDiv = $("<a>");
                             var videoLink = "https://www.youtube.com/watch?v=" + videoId;
                             var imgDiv = $("<img>");
+
+                            // THIS IS THE CODE FOR THE EMBEDDED YOUTUBE VIDEO, WHICH IS NOT WORKING ON MOBILE
                             // var embedDiv = '<div class="video-container"><iframe width="853" height="480" src="http://www.youtube.com/embed/' + videoId + '?rel=0" frameborder="0" allowfullscreen></iframe></div>';
+
                             var buttonCode = '<br><a id="' + buttonId + '" class="waves-effect waves-light btn" data-url="' + videoLink + '" ><i class="fas fa-clipboard" aria-hidden="true"></i> Copy Link</a>';
 
                             var imgSrc = response.items[0].snippet.thumbnails.medium.url;
@@ -90,6 +93,7 @@ $("#search-btn").on("click", function () {
                             newDiv.append(linkDiv);
                             imgDiv.attr("src", imgSrc);
                             linkDiv.append(imgDiv);
+                            // THIS IS THE CODE FOR THE EMBEDDED YOUTUBE VIDEO, WHICH IS NOT WORKING ON MOBILE
                             // newDiv.append(embedDiv);
                             newDiv.append(buttonCode);
 
@@ -240,6 +244,8 @@ $("#search-btn").on("click", function () {
                             var videoLink = "https://www.youtube.com/playlist?list=" + playlistId;
                             var imgDiv = $("<img>");
                             var imgSrc = response.items[0].snippet.thumbnails.medium.url;
+
+                            // THIS IS THE CODE FOR THE EMBEDDED YOUTUBE VIDEO, WHICH IS NOT WORKING ON MOBILE
                             // var embedDiv = '<div class="video-container"><iframe width="853" height="480" src="http://www.youtube.com/embed/videoseries?list=' + playlistId + '?rel=0" frameborder="0" allowfullscreen></iframe></div>';
                             var buttonCode = '<br><a id="' + buttonId + '" class="waves-effect waves-light btn" data-url="' + videoLink + '" ><i class="fas fa-clipboard" aria-hidden="true"></i> Copy Link</a>';
 
@@ -250,6 +256,7 @@ $("#search-btn").on("click", function () {
                             newDiv.append(linkDiv);
                             imgDiv.attr("src", imgSrc);
                             linkDiv.append(imgDiv);
+                            // THIS IS THE CODE FOR THE EMBEDDED YOUTUBE VIDEO, WHICH IS NOT WORKING ON MOBILE
                             // newDiv.append(embedDiv);
                             newDiv.append(buttonCode);
                             $(".btn").click(function () {
