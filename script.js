@@ -13,7 +13,7 @@ function copyToClipboard(text) {
 }
 
 
-var APIKey = "AIzaSyDbWRn-vHKFAxqPw4rJqZ6_zkKnpiaowI4";
+var APIKey = "AIzaSyDjfYvkbHeL-nQV709Sn0csyOiuzQHkAG0";
 
 // Event listener for search button
 $("#search-btn").on("click", function () {
@@ -54,7 +54,7 @@ $("#search-btn").on("click", function () {
         })
 
             .then(function (response) {
-
+                console.log(response);
                 // creates loop for 5 results
                 for (var i = 0; i < 5; i++) {
 
