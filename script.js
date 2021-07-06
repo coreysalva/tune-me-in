@@ -283,7 +283,7 @@ $("#search-btn").on("click", function () {
 
     var lastFmApiKey = "57fffbb92b9278298f1b78c87983014b"
     var sharedSecret = "7a7564505d37a6b2f3572896ce7d994a"
-    var queryURL5 = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artistName + "&api_key=" + lastFmApiKey + "&format=json";
+    var queryURL5 = "https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artistName + "&api_key=" + lastFmApiKey + "&format=json";
     $.ajax({
         url: queryURL5,
         method: "GET"
@@ -335,41 +335,41 @@ $("#search-btn").on("click", function () {
 
             $("#tk-content").append(newDiv);
 
+        });
+
+
+    var consumerKey = "gzWAlJdZuJtEWPZkzhui";
+    var consumerSecret = "PMLUKaQuCUoGBmQBXcRLDyqzltgJxUHH";
+    var queryURL4 = "https://api.discogs.com/database/search?artist=" + artistName + "&format=album&key=" + consumerKey + "&secret=" + consumerSecret;
 
 
 
-            var consumerKey = "gzWAlJdZuJtEWPZkzhui";
-            var consumerSecret = "PMLUKaQuCUoGBmQBXcRLDyqzltgJxUHH";
-            var queryURL4 = "https://api.discogs.com/database/search?artist=" + artistName + "&format=album&key=" + consumerKey + "&secret=" + consumerSecret;
+    $.ajax({
+        url: queryURL4,
+        method: "GET"
+    })
 
+        .then(function (response) {
+            for (var i = 0; i < 10; i++) {
+                // console.log(response);
 
+                var newDiv = $("<div>");
+                var albumTitleDiv = $("<p>");
+                var imgDiv = $("<img>");
+                var imgSrc = response.results[i].cover_image;
 
-            $.ajax({
-                url: queryURL4,
-                method: "GET"
-            })
+                imgDiv.attr("src", imgSrc);
+                albumTitleDiv.text(response.results[i].title);
+                newDiv.append(albumTitleDiv);
+                newDiv.append(imgDiv);
+                newDiv.append("<br>");
+                newDiv.append("<br>");
 
-                .then(function (response) {
-                    for (var i = 0; i < 10; i++) {
-                        // console.log(response);
-
-                        var newDiv = $("<div>");
-                        var albumTitleDiv = $("<p>");
-                        var imgDiv = $("<img>");
-                        var imgSrc = response.results[i].cover_image;
-
-                        imgDiv.attr("src", imgSrc);
-                        albumTitleDiv.text(response.results[i].title);
-                        newDiv.append(albumTitleDiv);
-                        newDiv.append(imgDiv);
-                        newDiv.append("<br>");
-                        newDiv.append("<br>");
-
-                        $("#tk-content").append(newDiv);
-                    };
-
-                });
+                $("#tk-content").append(newDiv);
+            };
 
         });
+
+
 
 });
